@@ -68,7 +68,7 @@ export default function Konaklama() {
           </div>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {altOdaImages.map((src, i) => (
-              <Image key={src} src={src} alt={`Alt Oda ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
+              <Image key={src} src={src.replace('.webp', '.jpg')} alt={`Alt Oda ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
             ))}
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function Konaklama() {
           </div>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {ustOdaImages.map((src, i) => (
-              <Image key={src} src={src} alt={`Üst Oda ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
+              <Image key={src} src={src.replace('.webp', '.jpg')} alt={`Üst Oda ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
             ))}
           </div>
         </div>
@@ -97,7 +97,7 @@ export default function Konaklama() {
           </div>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {aileOdasiImages.map((src, i) => (
-              <Image key={src} src={src} alt={`Aile Odası ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
+              <Image key={src} src={src.replace('.webp', '.jpg')} alt={`Aile Odası ${i+1}`} width={320} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
             ))}
           </div>
         </div>

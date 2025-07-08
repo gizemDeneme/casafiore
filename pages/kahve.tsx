@@ -47,7 +47,7 @@ export default function Kahve() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 48 }}>
           {coffeeImages.map((src, i) => (
             <div key={src} style={{ borderRadius: 12, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}>
-              <Image src={src} alt={`Casa Fiore Kahve ve Daha Fazlası ${i + 1}`} width={400} height={300} style={{ width: '100%', height: 250, objectFit: 'cover' }} />
+              <Image src={src.replace('.webp', '.jpg')} alt={`Casa Fiore Kahve ve Daha Fazlası ${i + 1}`} width={400} height={300} style={{ width: '100%', height: 250, objectFit: 'cover' }} />
             </div>
           ))}
         </div>

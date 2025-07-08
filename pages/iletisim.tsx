@@ -23,7 +23,7 @@ export default function Iletisim() {
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Link href="/" legacyBehavior>
               <a style={{ textDecoration: 'none' }}>
-                <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={64} height={64} style={{ borderRadius: '50%', border: '2px solid #e59236', background: '#fff', objectFit: 'contain', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }} />
+                <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={64} height={64} style={{ borderRadius: '50%', border: '2px solid #e59236', background: '#fff', objectFit: 'contain', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }} loading="eager" />
               </a>
             </Link>
           </div>
@@ -56,7 +56,7 @@ export default function Iletisim() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
               {cafeImages.map((src, i) => (
                 <div key={src} style={{ borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
-                  <Image src={src} alt={`Casa Fiore Cafe ${i + 1}`} width={400} height={300} style={{ width: '100%', height: 220, objectFit: 'cover' }} />
+                  <Image src={src.replace('.webp', '.jpg')} alt={`Casa Fiore Cafe ${i + 1}`} width={400} height={300} style={{ width: '100%', height: 220, objectFit: 'cover' }} />
                 </div>
               ))}
             </div>
