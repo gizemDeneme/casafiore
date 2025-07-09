@@ -1,172 +1,203 @@
-import Image from 'next/image';
-import Head from 'next/head';
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 
-const coffeeImages = [
-  '/images/coffee_more/1.jpg',
-  '/images/coffee_more/2.jpg',
-  '/images/coffee_more/3.jpg',
-  '/images/coffee_more/4.jpg',
-  '/images/coffee_more/5.jpg',
-  '/images/coffee_more/6.jpg',
-  '/images/coffee_more/7.jpg',
-  '/images/coffee_more/8.jpg',
-  '/images/coffee_more/9.jpg',
-  '/images/coffee_more/10.jpg',
-  '/images/coffee_more/11.jpg',
-  '/images/coffee_more/12.jpg',
-  '/images/coffee_more/13.Jjpg.JPG',
-  '/images/coffee_more/14.jpg',
-  '/images/coffee_more/16.jpg',
-  '/images/coffee_more/17.jpg',
-  '/images/coffee_more/18.jpg',
-  '/images/coffee_more/19.jpg',
+const orange = "#E07A1B";
+
+const menu = [
+  {
+    title: "Sıcak Kahveler",
+    items: [
+      { name: "Espresso", price: "90₺" },
+      { name: "Doppio", price: "100₺" },
+      { name: "Americano", price: "130₺" },
+      { name: "Cafe latte", price: "140₺" },
+      { name: "Cappucino", price: "140₺" },
+      { name: "Flat white", price: "140₺" },
+      { name: "Cortado", price: "130₺" },
+      { name: "Mocha", price: "150₺" },
+      { name: "White mocha", price: "150₺" },
+      { name: "Türk kahvesi", price: "100₺" },
+      { name: "Duble Türk kahvesi", price: "200₺" },
+    ],
+  },
+  {
+    title: "Soğuk Kahveler",
+    items: [
+      { name: "Ice americano", price: "150₺" },
+      { name: "Ice latte", price: "170₺" },
+      { name: "Ice mocha", price: "180₺" },
+      { name: "Ice white mocha", price: "180₺" },
+    ],
+  },
+  {
+    title: "Fresh & More",
+    items: [
+      { name: "Fiore refresher", price: "170₺" },
+      { name: "Sumaklı limonata", price: "170₺" },
+      { name: "Limonata", price: "140₺" },
+      { name: "Naneli limonata", price: "160₺" },
+      { name: "Green light tea", price: "150₺" },
+      { name: "Orman meyveli frozen", price: "170₺" },
+      { name: "Mango ananas frozen", price: "170₺" },
+      { name: "Cicibebe milkshake", price: "220₺" },
+      { name: "Oreo milkshake", price: "220₺" },
+      { name: "Berry milkshake", price: "220₺" },
+      { name: "Tropical milkshake", price: "220₺" },
+      { name: "Espresso milkshake", price: "220₺" },
+    ],
+  },
+  {
+    title: "Tea & More",
+    items: [
+      { name: "Demleme çay", price: "40₺" },
+      { name: "Fincan çay", price: "70₺" },
+      { name: "Bitki çayları", price: "130₺" },
+      { name: "Matcha latte", price: "160₺" },
+      { name: "Ice matcha latte", price: "180₺" },
+    ],
+  },
+  {
+    title: "Soft",
+    items: [
+      { name: "Su", price: "40₺" },
+      { name: "Soda", price: "70₺" },
+      { name: "Coca cola/zero", price: "90₺" },
+      { name: "Ice tea", price: "90₺" },
+    ],
+  },
+  {
+    title: "Ekstralar",
+    items: [
+      { name: "Ekstra shot", price: "50₺" },
+      { name: "Ekstra şurup (vanilya, karamel, frambuaz)", price: "30₺" },
+      { name: "Bitkisel süt", price: "40₺" },
+    ],
+  },
 ];
 
 export default function Kahve() {
   return (
-    <div style={{ background: '#fff', color: '#111', minHeight: '100vh' }}>
+    <div style={{ background: "#fff", color: "#222", fontFamily: "sans-serif" }}>
       <Head>
         <title>Kahve & Daha Fazlası | Casa Fiore Sığacık</title>
-        <meta name="description" content="Casa Fiore Sığacık içecek menüsü: Sıcak kahveler, soğuk kahveler, milkshake, demleme çay, matcha latte ve Ege’de kahve molası için en iyi seçenekler." />
-        <meta name="keywords" content="Sığacık kahve, Ege’de kahve molası, Casa Fiore içecek menüsü, soğuk kahve, milkshake, demleme çay, matcha latte" />
+        <meta name="description" content="Casa Fiore Sığacık’ta kahve, serpme kahvaltı ve Ege kahvaltısı menüsü. Sığacık’ta nerede kahvaltı yapılır, en iyi kahve ve serpme kahvaltı Casa Fiore’de!" />
+        <meta name="keywords" content="Sığacık kahvaltı, serpme kahvaltı, Ege kahvaltısı, Casa Fiore, Sığacık’ta nerede kahvaltı yapılır, kahve menüsü" />
       </Head>
-      <main style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
-        {/* Header Image */}
-        <div style={{ width: '100%', maxWidth: '100vw', height: '50vh', position: 'relative', marginBottom: 48, borderRadius: 16, overflow: 'hidden' }}>
-          <Image src="/images/coffee_more/15.jpg" alt="Kahve & Daha Fazlası" width={1920} height={600} style={{ objectFit: 'cover', width: '100%', height: '100%' }} priority />
+      {/* Header & Menü */}
+      <header style={{ borderBottom: `2px solid ${orange}`, background: "#fff" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1200, margin: "0 auto", padding: "1rem 2rem" }}>
+          <Link href="/">
+            <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={70} height={70} style={{ borderRadius: "50%" }} />
+          </Link>
+          <nav>
+            <ul style={{ display: "flex", gap: 32, listStyle: "none", margin: 0, padding: 0 }}>
+              <li><Link href="/konaklama" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Konaklama</Link></li>
+              <li><Link href="/kahvalti" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahvaltımız</Link></li>
+              <li><Link href="/kahve" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahve & Daha Fazlası</Link></li>
+              <li><Link href="/iletisim" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>İletişim</Link></li>
+            </ul>
+          </nav>
         </div>
-        <h1 style={{ fontSize: '2.2rem', fontWeight: 700, textAlign: 'center', marginBottom: 24, color: '#7c4a1a' }}>
-          Kahve & Daha Fazlası – Casa Fiore’de Her Damak Tadına Uygun Bir Mola
+      </header>
+      {/* Hero */}
+      <section style={{ position: "relative", width: "100%", height: "40vw", maxHeight: 400, minHeight: 220, overflow: "hidden" }}>
+        <Image src="/images/coffee_more/15.jpg" alt="Casa Fiore Kahve & Daha Fazlası" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
+        <h1 style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", color: "#fff", fontSize: "2.5rem", fontWeight: 700, letterSpacing: 1, textShadow: "0 2px 16px #000" }}>
+          Kahve & Daha Fazlası
         </h1>
-        <p style={{ color: '#222', fontSize: '1.1rem', marginBottom: 32, textAlign: 'center', lineHeight: 1.7 }}>
+      </section>
+      {/* Açıklama */}
+      <section style={{ maxWidth: 900, margin: "2.5rem auto 0 auto", padding: "0 1rem" }}>
+        <h2 style={{ color: orange, fontSize: 26, fontWeight: 700, marginBottom: 16 }}>Kahve & Daha Fazlası – Casa Fiore’de Her Damak Tadına Uygun Bir Mola</h2>
+        <p style={{ fontSize: 17, marginBottom: 18, lineHeight: 1.7 }}>
           Casa Fiore’de kahve, sadece bir içecek değil, anın tadını çıkarma biçimidir. Sığacık’ın sıcak ritmine eşlik eden menümüzde, klasik kahve çeşitlerinden özgün karışımlara, ferahlatıcı içeceklerden tatlı dokunuşlara kadar her zevke uygun bir seçenek bulacaksınız.<br /><br />
           Espresso, cappuccino, latte gibi sıcak kahvelerimizle güne güçlü bir başlangıç yapabilir; iced latte, white mocha, cold brew gibi soğuk kahvelerimizle serinleyebilirsiniz. Kahve dışında, ev yapımı limonatalar, sumaklı ferahlatıcı karışımlar ve orman meyveli frozen’larla içecek deneyiminizi zenginleştirebilirsiniz.<br /><br />
           Tatlı bir kaçamak arayanlar için cicibebe, oreo veya berry milkshake’ler; bitki çayı sevenler için ise doğal demlemeler ve matcha latte seçenekleri menümüzde sizi bekliyor.<br /><br />
           Casa Fiore’nin samimi atmosferinde, ister yalnız başınıza bir fincan kahveyle, ister sevdiklerinizle keyifli sohbetler eşliğinde içeceğinizle bu anı özel kılabilirsiniz.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 48 }}>
-          {coffeeImages.map((src, i) => (
-            <div key={src} style={{ borderRadius: 12, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}>
-              <Image src={src.replace('.webp', '.jpg')} alt={`Casa Fiore Kahve ve Daha Fazlası ${i + 1}`} width={400} height={300} style={{ width: '100%', height: 250, objectFit: 'cover' }} />
+      </section>
+      <div style={{ width: '100%', maxWidth: 900, margin: '2.5rem auto', borderBottom: `2px solid #ececec`, height: 0 }} />
+      {/* Menü */}
+      <section style={{ maxWidth: 700, margin: "2.5rem auto 2rem auto", padding: "0 1rem" }}>
+        <h2 style={{ color: orange, fontSize: 24, fontWeight: 700, margin: "2rem 0 1rem 0" }}>Casa Fiore Sığacık Kahve & Serpme Kahvaltı Menüsü</h2>
+        <p style={{ fontSize: 16, marginBottom: 18 }}>
+          Casa Fiore’de her sabah taptaze serpme kahvaltı ve gün boyu kahve keyfi sizi bekliyor. Sığacık’ta kahvaltı ve kahve için en iyi adres!
+        </p>
+        <div className="menu-cards">
+          {menu.map((cat) => (
+            <div className="menu-card" key={cat.title}>
+              <h3>{cat.title}</h3>
+              <ul>
+                {cat.items.map((item) => (
+                  <li key={item.name}>
+                    <span className="item">{item.name}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
-        {/* MENU SECTION */}
-        <div style={{ maxWidth: 700, margin: '0 auto', padding: '32px 0' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, textAlign: 'center', marginBottom: 24 }}>Menü</h2>
-          <p style={{ textAlign: 'center', marginBottom: 32 }}>
-            Casa Fiore Sığacık’ta Ege’de kahve molası vermek isteyenler için özenle hazırladığımız içecek menümüzü keşfedin. Sıcak ve soğuk kahveler, milkshake çeşitleri, demleme çaylar, matcha latte ve daha fazlası ile Casa Fiore içecek menüsü her damak zevkine hitap ediyor.
-          </p>
-          <section>
-            <h2>Sıcak Kahveler</h2>
-            <ul>
-              <li>Espresso <span className="price">90₺</span></li>
-              <li>Doppio <span className="price">100₺</span></li>
-              <li>Americano <span className="price">130₺</span></li>
-              <li>Cafe latte <span className="price">140₺</span></li>
-              <li>Cappucino <span className="price">140₺</span></li>
-              <li>Flat white <span className="price">140₺</span></li>
-              <li>Cortado <span className="price">130₺</span></li>
-              <li>Mocha <span className="price">150₺</span></li>
-              <li>White mocha <span className="price">150₺</span></li>
-              <li>Türk kahvesi <span className="price">100₺</span></li>
-              <li>Duble Türk kahvesi <span className="price">200₺</span></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Soğuk Kahveler</h2>
-            <ul>
-              <li>Ice americano <span className="price">150₺</span></li>
-              <li>Ice latte <span className="price">170₺</span></li>
-              <li>Ice mocha <span className="price">180₺</span></li>
-              <li>Ice white mocha <span className="price">180₺</span></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Fresh & More</h2>
-            <ul>
-              <li>Fiore refresher <span className="price">170₺</span></li>
-              <li>Sumaklı limonata <span className="price">170₺</span></li>
-              <li>Limonata <span className="price">140₺</span></li>
-              <li>Naneli limonata <span className="price">160₺</span></li>
-              <li>Green light tea <span className="price">150₺</span></li>
-              <li>Orman meyveli frozen <span className="price">170₺</span></li>
-              <li>Mango ananas frozen <span className="price">170₺</span></li>
-              <li>Cicibebe milkshake <span className="price">220₺</span></li>
-              <li>Oreo milkshake <span className="price">220₺</span></li>
-              <li>Berry milkshake <span className="price">220₺</span></li>
-              <li>Tropical milkshake <span className="price">220₺</span></li>
-              <li>Espresso milkshake <span className="price">220₺</span></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Tea & More</h2>
-            <ul>
-              <li>Demleme çay <span className="price">40₺</span></li>
-              <li>Fincan çay <span className="price">70₺</span></li>
-              <li>Bitki çayları <span className="price">130₺</span></li>
-              <li>Matcha latte <span className="price">160₺</span></li>
-              <li>Ice matcha latte <span className="price">180₺</span></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Soft</h2>
-            <ul>
-              <li>Su <span className="price">40₺</span></li>
-              <li>Soda <span className="price">70₺</span></li>
-              <li>Coca cola/zero <span className="price">90₺</span></li>
-              <li>Ice tea <span className="price">90₺</span></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Ekstralar</h2>
-            <ul>
-              <li>Ekstra shot <span className="price">50₺</span></li>
-              <li>Ekstra şurup (vanilya, karamel, frambuaz) <span className="price">30₺</span></li>
-              <li>Bitkisel süt <span className="price">40₺</span></li>
-            </ul>
-          </section>
-        </div>
-      </main>
-      <style jsx>{`
-        section {
-          margin-bottom: 32px;
-        }
-        h2 {
-          font-size: 1.5rem;
-          margin-bottom: 8px;
-          font-weight: 600;
-        }
-        ul {
-          list-style: none;
-          padding: 0;
-        }
-        li {
-          display: flex;
-          justify-content: space-between;
-          padding: 6px 0;
-          border-bottom: 1px solid #eaeaea;
-          font-size: 1.08rem;
-        }
-        .price {
-          font-weight: 600;
-          letter-spacing: 0.5px;
-        }
-        @media (max-width: 600px) {
-          main {
-            padding: 20px 4px;
+        <style jsx>{`
+          .menu-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
           }
-          h1 {
-            font-size: 1.3rem;
+          .menu-card {
+            background: #faf7f2;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 24px 18px 12px 18px;
+            margin-bottom: 0;
           }
-          h2 {
-            font-size: 1.1rem;
+          .menu-card h3 {
+            color: ${orange};
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
           }
-          li {
-            font-size: 0.98rem;
+          .menu-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px 0;
           }
-        }
-      `}</style>
+          .menu-card li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.08rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #ececec;
+            transition: background 0.2s;
+          }
+          .menu-card li:last-child {
+            border-bottom: none;
+          }
+          .menu-card li:hover {
+            background: #fff5e6;
+          }
+          .item {
+            font-weight: 500;
+          }
+          .price {
+            color: ${orange};
+            font-weight: 700;
+            margin-left: 16px;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+          }
+          @media (max-width: 600px) {
+            .menu-card {
+              padding: 14px 4px 8px 4px;
+            }
+            .menu-card li {
+              font-size: 0.98rem;
+              padding: 8px 0;
+            }
+          }
+        `}</style>
+      </section>
     </div>
   );
 } 

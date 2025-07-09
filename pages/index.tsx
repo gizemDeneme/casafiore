@@ -1,114 +1,105 @@
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const orange = "#E07A1B";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const rooms = [
+  {
+    name: "Alt Odalar",
+    image: "/images/rooms/alt-oda/1.jpg",
+    desc:
+      "Zeminde konumlanan bu huzurlu oda, Casa Fiore’nin bahçesiyle iç içe sakin bir konaklama deneyimi sunar. Serin yaz akşamlarının tadını çıkarabileceğiniz bu oda, sade ve şık detaylarla donatılmıştır. Doğrudan bahçeye açılan kapısıyla, doğayla baş başa bir atmosfer arayanlar için idealdir.",
+  },
+  {
+    name: "Üst Odalar",
+    image: "/images/rooms/ust-oda/1.jpg",
+    desc:
+      "Casa Fiore’nin üst katında yer alan bu oda, avluya bakan keyifli konumuyla sakinlik arayan misafirler için huzurlu bir seçenek sunar. Doğal dokular, özenle seçilmiş detaylar ve sade şıklığıyla sade ama zarif bir atmosfer yaratır. Sessizlik ve dinginlik isteyen çiftler için idealdir.",
+  },
+  {
+    name: "Aile Odası",
+    image: "/images/rooms/aile-odasi/1.jpg",
+    desc:
+      "Geniş ve kullanışlı yapısıyla aileler için ideal olan bu oda, hem ebeveynler hem çocuklar için konforlu bir konaklama sağlar. Çoklu yatak düzeniyle, ev sıcaklığında ama Casa Fiore şıklığında bir deneyim sunar.",
+  },
+];
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+    <div style={{ fontFamily: "sans-serif", background: "#fff" }}>
+      {/* Header & Menü */}
+      <header style={{ borderBottom: `2px solid ${orange}`, background: "#fff" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1200, margin: "0 auto", padding: "1rem 2rem" }}>
+          <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={80} height={80} style={{ borderRadius: "50%" }} />
+          <nav>
+            <ul style={{ display: "flex", gap: 32, listStyle: "none", margin: 0, padding: 0 }}>
+              <li><Link href="/konaklama" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Konaklama</Link></li>
+              <li><Link href="/kahvalti" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahvaltımız</Link></li>
+              <li><Link href="/kahve" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahve & Daha Fazlası</Link></li>
+              <li><Link href="/iletisim" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>İletişim</Link></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section style={{ position: "relative", width: "100%", height: "50vw", maxHeight: 500, minHeight: 300, overflow: "hidden" }}>
+        <Image src="/images/hero/hero-image.jpg" alt="Casa Fiore Hero" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
+        <h1 style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", color: "#fff", fontSize: "3rem", fontWeight: 700, letterSpacing: 2, textShadow: "0 2px 16px #000" }}>
+          Casa Fiore Sığacık
+        </h1>
+      </section>
+
+      {/* Konaklama */}
+      <section style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1rem 1rem 1rem" }}>
+        <h2 style={{ color: orange, fontSize: 32, fontWeight: 700, marginBottom: 32 }}>Konaklama</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 32, justifyContent: "center" }}>
+          {rooms.map((room) => (
+            <div key={room.name} style={{ background: "#faf7f2", borderRadius: 16, boxShadow: "0 2px 8px #0001", maxWidth: 340, flex: "1 1 300px", padding: 24, display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Image src={room.image} alt={room.name} width={300} height={200} style={{ borderRadius: 12, objectFit: "cover" }} />
+              <h3 style={{ color: orange, fontSize: 22, fontWeight: 700, margin: "1rem 0 0.5rem 0" }}>{room.name}</h3>
+              <p style={{ color: "#333", fontSize: 16, textAlign: "center" }}>{room.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Kahvaltımız */}
+      <section style={{ maxWidth: 900, margin: "3rem auto 0 auto", padding: "1rem" }}>
+        <h2 style={{ color: orange, fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Kahvaltımız</h2>
+        <p style={{ color: "#333", fontSize: 17, textAlign: "center", marginBottom: 24 }}>
+          Yeni güne Ege’nin dinginliğinde, taptaze lezzetlerle başlamak ister misiniz? Casa Fiore’de her sabah, özenle hazırlanan yerel ürünler ve mevsimlik tatlarla kurulan sofralar sizi bekliyor.<br />
+          Gelin, kahvaltıyı sadece bir öğün değil, bir ritüel haline getirelim.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Image src="/images/breakfast/1.jpg" alt="Kahvaltı" width={400} height={250} style={{ borderRadius: 12, objectFit: "cover" }} />
+          <Link href="/kahvalti" style={{ marginTop: 16, color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>
+            👉 Kahvaltı sayfasına göz atın
+          </Link>
+        </div>
+      </section>
+
+      {/* Kahve & Daha Fazlası */}
+      <section style={{ maxWidth: 900, margin: "3rem auto 0 auto", padding: "1rem" }}>
+        <h2 style={{ color: orange, fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Kahve & Daha Fazlası</h2>
+        <p style={{ color: "#333", fontSize: 17, textAlign: "center", marginBottom: 24 }}>
+          Casa Fiore’de kahve sadece içecek değil, bir ritüel. Espresso’dan matcha latte’ye, sumaklı limonatadan cicibebe milkshake’e kadar her damak zevkine hitap eden zengin menümüzle günün her anına eşlik ediyoruz. Sıcak ve soğuk içecek seçeneklerimizi keşfedin, bir fincan mutluluğa davetlisiniz.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Image src="/images/coffee_more/15.jpg" alt="Kahve ve Daha Fazlası" width={400} height={250} style={{ borderRadius: 12, objectFit: "cover" }} />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ background: "#222", color: "#fff", marginTop: 48, padding: "2rem 1rem", textAlign: "center" }}>
+        <div style={{ fontWeight: 700, color: orange, fontSize: 20, marginBottom: 8 }}>@casafioresigacik</div>
+        <div>Sığacık, 127. Sk. No: 21, 35460 Seferihisar/İzmir</div>
+        <div>0 (531) 611 71 76</div>
+        <div style={{ marginTop: 8 }}>
+          <a href="https://www.instagram.com/casafioresigacik/" target="_blank" rel="noopener noreferrer" style={{ color: orange, textDecoration: "underline" }}>
+            Instagram
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
     </div>
   );
