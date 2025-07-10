@@ -12,79 +12,22 @@ export default function Iletisim() {
         <meta name="description" content="Casa Fiore Sığacık ile iletişime geçmek için adres, telefon ve e-posta bilgilerine ulaşabilir, form aracılığıyla mesaj bırakabilirsiniz." />
       </Head>
       {/* Header & Menü */}
-      <header className="header-flex">
-        <Link href="/" className="logo-flex">
-          <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={80} height={80} style={{ borderRadius: "50%" }} />
-        </Link>
-        <div className="menu-group">
-          <nav>
-            <ul className="nav-menu">
-              <li><Link href="/konaklama">Konaklama</Link></li>
-              <li><Link href="/kahvalti">Kahvaltımız</Link></li>
-              <li><Link href="/kahve">Kahve & Daha Fazlası</Link></li>
-              <li><Link href="/iletisim">İletişim</Link></li>
+      <header style={{ borderBottom: `2px solid ${orange}`, background: "#fff" }}>
+        <div style={{ display: "flex", alignItems: "center", maxWidth: 1200, margin: "0 auto", padding: "1rem 2rem" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", marginRight: "auto" }}>
+            <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={80} height={80} style={{ borderRadius: "50%" }} />
+          </Link>
+          <nav style={{ marginLeft: "auto" }}>
+            <ul style={{ display: "flex", gap: 32, listStyle: "none", margin: 0, padding: 0 }}>
+              <li><Link href="/konaklama" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Konaklama</Link></li>
+              <li><Link href="/kahvalti" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahvaltımız</Link></li>
+              <li><Link href="/kahve" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahve & Daha Fazlası</Link></li>
+              <li><Link href="/iletisim" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>İletişim</Link></li>
             </ul>
           </nav>
         </div>
       </header>
-      <style jsx>{`
-        .header-flex {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 2px solid ${orange};
-          background: #fff;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 16px 32px;
-        }
-        .logo-flex {
-          align-self: flex-start;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-        }
-        .menu-group {
-          margin-left: auto;
-          display: flex;
-          align-items: center;
-        }
-        .nav-menu {
-          display: flex;
-          gap: 24px;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-        .nav-menu li a {
-          color: ${orange};
-          font-weight: 600;
-          font-size: 18px;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .nav-menu li a:hover {
-          color: #b85d0d;
-        }
-        @media (max-width: 700px) {
-          .header-flex {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 12px 8px;
-          }
-          .menu-group {
-            width: 100%;
-            margin-left: 0;
-          }
-          .nav-menu {
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            align-items: flex-start;
-          }
-        }
-      `}</style>
+
       <main style={{ maxWidth: 800, margin: "0 auto", padding: "2rem 1rem 1rem 1rem" }}>
         <h1 style={{ color: "#111", fontSize: 32, fontWeight: 700, marginBottom: 16 }}>Bize Ulaşın</h1>
         <p style={{ fontSize: 17, color: "#111", marginBottom: 24 }}>
