@@ -29,9 +29,11 @@ export default function Home() {
     <div style={{ fontFamily: "sans-serif", background: "#fff" }}>
       {/* Header & Menü */}
       <header style={{ borderBottom: `2px solid ${orange}`, background: "#fff" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1200, margin: "0 auto", padding: "1rem 2rem" }}>
-          <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={80} height={80} style={{ borderRadius: "50%" }} />
-          <nav>
+        <div style={{ display: "flex", alignItems: "center", maxWidth: 1200, margin: "0 auto", padding: "1rem 2rem" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", marginRight: "auto" }}>
+            <Image src="/images/about/about-image.jpg" alt="Casa Fiore Logo" width={80} height={80} style={{ borderRadius: "50%" }} />
+          </Link>
+          <nav style={{ marginLeft: "auto" }}>
             <ul style={{ display: "flex", gap: 32, listStyle: "none", margin: 0, padding: 0 }}>
               <li><Link href="/konaklama" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Konaklama</Link></li>
               <li><Link href="/kahvalti" style={{ color: orange, fontWeight: 600, fontSize: 18, textDecoration: "none" }}>Kahvaltımız</Link></li>

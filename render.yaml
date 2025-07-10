@@ -1,9 +1,9 @@
 services:
   - type: web
     name: casafiore
-    env: static
+    env: node
     buildCommand: npm run build
-    staticPublishPath: ./out
+    startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 18.17.0 
